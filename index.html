@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم سلمي - مفتوح 24 ساعة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #f5f5f5;
+            --accent-color: #ffc107;
+            --text-color: #ffffff;
+            --light-bg: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(0, 0, 0, 0.4);
+            --card-border: rgba(255, 255, 255, 0.25);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: url('22.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 10px 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                150deg,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(0, 0, 0, 0.15) 100%
+            );
+            z-index: 0;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('22.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 20px 15px 25px;
+            text-align: center;
+            width: 90%;
+            max-width: 380px;
+            max-height: 95vh;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px) saturate(180%);
+            -webkit-backdrop-filter: blur(8px) saturate(180%);
+            margin: 0 auto;
+            box-sizing: border-box;
+            position: relative;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 215, 0, 0.4) rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom scrollbar for Webkit browsers */
+        .card::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .card::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        
+        .card::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+        }
+        
+        .card::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .logo-container {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .hand-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e67e22, #e74c3c);
+            border: 4px solid rgba(255, 255, 255, 0.4);
+            padding: 5px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+            z-index: 2;
+            background: #fff;
+            padding: 10px;
+        }
+        
+        .subtitle {
+            color: #fff;
+            margin: 20px 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            padding: 0 15px;
+        }
+        
+        .subtitle::before,
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fff);
+        }
+        
+        .subtitle::before {
+            right: 100%;
+        }
+        
+        .subtitle::after {
+            left: 100%;
+            transform: scaleX(-1);
+        }
+        
+        .open-24-7 {
+            background: rgba(230, 126, 34, 0.9);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            margin: 15px 0 25px;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+            animation: pulse 2s infinite;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .open-24-7 i {
+            margin-left: 8px;
+            font-size: 1.2em;
+        }
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+        
+        .currency-image {
+            margin: 10px auto;
+            max-width: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .currency-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        
+        .circle-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+        }
+        
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--secondary-color), #8e44ad);
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+            cursor: default;
+            overflow: hidden;
+        }
+        
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            margin: 2px 0;
+            width: 100%;
+            padding: 0 1px;
+            box-sizing: border-box;
+        }
+        
+        .branches-section {
+            margin: 20px 0;
+            width: 100%;
+            padding: 0 10px;
+        }
+        
+        .branch-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+            font-size: 0.7em;
+            margin: 5px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: default;
+            line-height: 1.4;
+        }
+        
+        .branch-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .branch-card h4 {
+            color: var(--accent-color);
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .branch-card p {
+            margin: 4px 0;
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .branch-card a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .circle-text {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.1);
+            z-index: -1;
+        }
+        
+        .decoration-1 {
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .decoration-2 {
+            bottom: -30px;
+            left: -30px;
+            width: 120px;
+            height: 120px;
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .circle-container {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+    <script>
+        function updateDammamTime() {
+            // Create a date object for Dammam time (Saudi Arabia)
+            const options = {
+                timeZone: 'Asia/Riyadh',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true,
+                numberingSystem: 'arab'
+            };
+            
+            const formatter = new Intl.DateTimeFormat('ar-SA', options);
+            const now = new Date();
+            const currentHour = now.getHours();
+            
+            // Format the time
+            const timeString = formatter.format(now);
+            document.getElementById('time-display').textContent = timeString;
+            
+            // Check if we're within working hours (9 AM to 9 PM)
+            const workingHoursStatus = document.getElementById('working-hours-status');
+            const isWorkingHours = currentHour >= 9 && currentHour < 21; // 9 AM to 9 PM
+            
+            if (isWorkingHours) {
+                workingHoursStatus.textContent = 'مفتوح الآن';
+                workingHoursStatus.style.backgroundColor = 'rgba(46, 204, 113, 0.2)';
+                workingHoursStatus.style.color = '#2ecc71';
+            } else {
+                workingHoursStatus.textContent = 'مغلق الآن';
+                workingHoursStatus.style.backgroundColor = 'rgba(231, 76, 60, 0.2)';
+                workingHoursStatus.style.color = '#e74c3c';
+            }
+        }
+        
+        // Update time immediately and then every second
+        updateDammamTime();
+        setInterval(updateDammamTime, 1000);
+    </script>
+</head>
+<body>
+    <div class="card" id="mainCard">
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        
+        <div class="logo-container">
+            <div class="hand-container">
+                <div class="hand"></div>
+                <div class="logo">
+                    <img src="114454.jpeg" alt="شعار">
+                </div>
+            </div>
+            <h1 style="margin: 10px 0 5px 0; font-size: 1.5rem; color: #ffd700; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">وفرنا لكم</h1>
+            <p style="margin: 0 0 15px 0; font-size: 0.9rem; line-height: 1.4; color: rgba(255, 255, 255, 0.9);">توصل الطلبات بسعر رمزي</p>
+            <h2 style="font-size: 1.3rem; margin: 15px 0 8px 0; color: #ffd700; font-weight: 600;">خدمة التوصيل</h2>
+            <p style="font-size: 0.85rem; margin: 0 0 20px 0; line-height: 1.5; color: rgba(255, 255, 255, 0.85);">نوفر خدمة التوصيل السريع لجميع مناطق الاحساء الشرقية</p>
+            <div class="delivery-image" style="text-align: center; margin: 20px 0 25px 0;">
+                <img src="111124.avif" alt="خدمة التوصيل" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.15); transition: transform 0.3s ease;">
+            </div>
+        </div>
+        
+        <!-- فروعنا -->
+        <div class="branches-section" style="margin: 8px 0 4px 0;">
+            <h2 style="color: var(--primary-color); margin: 0 0 4px 0; text-align: center; font-size: 1rem;">فروعنا</h2>
+            <p style="text-align: center; margin-bottom: 6px; color: var(--accent-color); font-size: 0.75rem;">تواصل معنا في أي من فروعنا</p>
+            
+            <!-- Dammam Time Display -->
+            <div id="dammam-time" style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 12px; margin: 15px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: #ffd700; margin: 0 0 8px 0; font-size: 1rem; text-align: center;">⏰ وقت الدمام</h3>
+                <div id="time-display" style="font-size: 1.2rem; font-weight: bold; text-align: center; margin-bottom: 5px;">--:--:--</div>
+                <div id="working-hours-status" style="font-size: 0.8rem; text-align: center; padding: 4px 8px; border-radius: 12px; display: inline-block; margin: 0 auto;">جاري التحميل...</div>
+                <p style="font-size: 0.7rem; text-align: center; margin: 8px 0 0 0; color: rgba(255, 255, 255, 0.7);">ساعات العمل: 9 صباحاً - 9 مساءً</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 0 6px;">
+                <!-- فرع القارة -->
+                <div class="branch-card">
+                    <h4>🏢 فرع القارة</h4>
+                    <p>📍 القارة - حي الصفا</p>
+                    <p>📞 <a href="tel:0507505606">0507505606</a></p>
+                    <p>⏰ 9 ص - 9 م</p>
+                </div>
+                
+                <!-- فرع المبرز -->
+                <div class="branch-card">
+                    <h4>🏢 فرع المبرز</h4>
+                    <p>📍 المبرز</p>
+                    <p>📞 <a href="tel:0537099011">0537099011</a></p>
+                    <p>⏰ 9 ص - 9 م</p>
+                </div>
+                
+                <!-- فرع الميزلة -->
+                <div class="branch-card">
+                    <h4>🏢 فرع الميزلة</h4>
+                    <p>📍 الميزلة - شارع المطار</p>
+                    <p>📞 <a href="tel:0500000000">0500000000</a></p>
+                    <p>⏰ 9 ص - 9 م</p>
+                </div>
+                
+                <!-- فرع الخالدية -->
+                <div class="branch-card">
+                    <h4>🏢 فرع الخالدية</h4>
+                    <p>📍 الخالدية - الرايس</p>
+                    <p>📞 <a href="tel:0577505606">0577505606</a></p>
+                    <p>⏰ 9 ص - 9 م</p>
+                </div>
+                
+                <!-- فرع الشهابية -->
+                <div class="branch-card">
+                    <h4>🏢 فرع الشهابية</h4>
+                    <p>📍 الشهابية</p>
+                    <p>📞 <a href="tel:0553099044">0553099044</a></p>
+                    <p>⏰ 9 ص - 9 م</p>
+                </div>
+          </div>
+        </div>
+        
+
+    </div>
+    
+    <script>
+        // No JavaScript needed for static page
+    </script>
+</body>
+</html>
